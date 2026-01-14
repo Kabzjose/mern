@@ -1,0 +1,21 @@
+
+const {mongoose} = require("../db")
+const {Schema}=mongoose    //schema is a blueprint of building something
+
+
+const userSchema= new Schema({
+    name:{type:String,
+        required:true
+    },
+    email:{
+        type:String, required:true,unique:true
+    },
+    role:{type:String,default:"user"},
+
+},
+{
+    timestamps:true
+})
+
+const User =mongoose.model("User",userSchema)
+module.exports={ User }
