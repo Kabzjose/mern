@@ -14,7 +14,7 @@ router.get("/", async(req,res)=>{
 
 //create a student
 router.post("/",async (req,res)=>{
-    const { name,age,email}=req.body
+    const { name,email,age}=req.body
    try {
      const create= new Student({name,email,age});
     const saved= await create.save();

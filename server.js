@@ -1,6 +1,7 @@
 const express=require("express");
 const dotenv=require("dotenv");
 const connectDB=require("./config/db");
+const cors=require("cors")
 
 dotenv.config()
 const app =express()
@@ -8,7 +9,11 @@ const app =express()
 
 //Middleware:parse JSON
 app.use(express.json())
-
+app.use(cors({
+    origin:"http://localhost:5173",
+    methods:('GET','POST','PUT','DELETE'),
+    Credentials:true
+}));
 //connectDB
 connectDB()
 
